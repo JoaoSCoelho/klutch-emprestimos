@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { Header } from '../components/Header'
 import styles from '../styles/pages/Home.module.css'
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
         <title>Empréstimos | Klutch</title>
       </Head>
 
+      <Header />
 
       <main className={styles.main}>
 
