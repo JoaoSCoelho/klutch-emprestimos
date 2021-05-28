@@ -1,16 +1,60 @@
-html,
-body {
-  padding: 0;
+/* Define variáveis de cores (paleta) */
+:root {
+  --blue-1: #228a95;
+  --blue-2: #187680;
+  --orange-1: #ef9c4b;
+  --orange-2: #fd8030;
+  --font: #777;
+  --background: #f8f8f8;
+}
+
+/* Remove margin e padding de todos os elementos e seta box-sizing como border-box (facilita a estilização individual) */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+/* Da uma reduzida no tamanho da fonte - e do rem - conforme tamanho da tela */
+@media (max-width: 1440px) {
+  :root {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 1080px) {
+  :root {
+    font-size: 87.5%;
+  }
+}
+
+@media (max-width: 750px) {
+  :root {
+    font-size: 81.25%;
+  }
+}
+
+/* Seta a fonte padrão do site */
+body {
+  font: 400 1rem "Flexo", Arial, Helvetica, sans-serif;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
 }
 
 a {
+  text-decoration: inherit;
   color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }
