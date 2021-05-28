@@ -5,3 +5,29 @@
   height: 100%;
   min-height: calc();
 }
+
+.desiredValue {
+  max-width: 770px;
+  display: grid;
+  grid-template-areas: 'title title' 'input button';
+  grid-template-columns: 1fr 10rem;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.desiredValue > .title {
+  grid-area: title;
+  text-align: center;
+  color: var(--blue-1);
+  font-size: 2.7rem;
+}
+
+.desiredValue > button[type=submit] {
+  border-radius: 5px;
+  background-color: var(--orange-1);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}

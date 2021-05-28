@@ -17,7 +17,11 @@ export default function Home() {
         <Subject text="Simulação de Taxas" plusIcon />
 
         <form className={styles.desiredValue}>
+          <strong className={styles.title}>Valor Desejado</strong>
+
           <InputMoney onChange={(e) => setDesiredValue(Number(e.target.value))} />
+
+          <button type="submit">Calcular</button>
         </form>
 
       </main>
