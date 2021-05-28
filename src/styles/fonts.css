@@ -1,0 +1,97 @@
+/* Importa todas as variações da fonte Flexo que se encontra em public/fonts/Flexo */
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-ThinIt.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-LightIt.ttf') format('truetype');
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-Light.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-It.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-MediumIt.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-DemiIt.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-Demi.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-BoldIt.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-HeavyIt.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-BlackIt.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Flexo';
+  src: url('/fonts/Flexo/Flexo-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
