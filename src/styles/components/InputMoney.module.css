@@ -1,0 +1,37 @@
+.container {
+  background-color: var(--background);
+  border-radius: 5px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  font-size: 1.7rem;
+}
+
+.container > .currency {
+  background-color: var(--blue-1);
+  color: white;
+  font-weight: 700;
+  border-radius: 5px;
+  height: 100%;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container > input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  text-align: center;
+}
+
+/* Remove as setinhas do input button */
+.container > input::-webkit-outer-spin-button,
+.container > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
