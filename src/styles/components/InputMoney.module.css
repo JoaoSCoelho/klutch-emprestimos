@@ -27,6 +27,7 @@
   -moz-appearance: textfield;
   appearance: textfield;
   text-align: center;
+  color: var(--font);
 }
 
 /* Remove as setinhas do input button */

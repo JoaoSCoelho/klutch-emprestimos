@@ -10,10 +10,16 @@ export function InputMoney({ onChange, className }: IInputMoneyProps) {
   return (
     <div className={`${styles.container} ${className}`}>
       <span className={styles.currency}>R$</span>
-      <input type="number" min="300" max="10000" onChange={(e) => {
-        e.target.value = Number(e.target.value).toFixed(2) + ''
-        onChange(e)
-      }} />
+      <input
+        type="number"
+        min="300"
+        max="10000"
+        defaultValue="0.00"
+        title="O valor deve estar entre R$300.00 e R$10000.00"
+        onChange={(e) => {
+          e.target.value = Number(e.target.value).toFixed(2) + ''
+          onChange(e)
+        }} />
     </div>
   )
 }
