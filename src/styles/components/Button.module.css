@@ -1,0 +1,7 @@
+.container {
+  border-radius: 5px;
+  background-color: var(--orange-1);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
