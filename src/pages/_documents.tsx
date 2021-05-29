@@ -7,9 +7,9 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet="UTF-8" />
           <meta name="theme-color" content="#ffffff" />
-
           <meta name="author" content="João Victor" />
 
+          {/* Metadados do OpenGraph e Twitter */}
           <meta property="og:title" content="Empréstimos | Klutch" />
           <meta property="og:locale" content="pt_BR" />
           <meta property="og:site_name" content="Klutch" />
