@@ -14,12 +14,10 @@ export function InputMoney({ onChange, className }: IInputMoneyProps) {
         type="number"
         min="300"
         max="10000"
+        step="0.01"
         defaultValue="0.00"
         title="O valor deve estar entre R$300.00 e R$10000.00"
-        onChange={(e) => {
-          e.target.value = Number(e.target.value).toFixed(2) + ''
-          onChange(e)
-        }} />
+        onChange={onChange} />
     </div>
   )
 }
