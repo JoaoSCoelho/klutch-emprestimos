@@ -24,10 +24,6 @@
   font-size: 2.7rem;
 }
 
-.desiredValue > button[type=submit] {
-  border-radius: 5px;
-  background-color: var(--orange-1);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
+.rateTable {
+  margin-top: 4rem;
 }
