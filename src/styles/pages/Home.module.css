@@ -24,6 +24,52 @@
   font-size: 2.7rem;
 }
 
-.rateTable {
-  margin-top: 4rem;
+/* Formulário para selecionar a tabela e a parcela */
+
+.desiredTableAndInstallment {
+  margin: 4rem auto 90px;
+}
+
+.desiredTableAndInstallment > .inputContainer {
+  height: 100%;
+  background-color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.desiredTableAndInstallment > .inputContainer > input {
+  margin: auto;
+}
+
+.tableAndInstallmentInfo {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
+
+  background-color: var(--blue-1);
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.tableAndInstallmentInfo > .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: min(80%, 1300px);
+  margin: auto;
+}
+
+.tableAndInstallmentInfo > .content > .info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
 }
