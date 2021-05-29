@@ -36,7 +36,7 @@ export default function Home() {
 
           <InputMoney onChange={(e) => setInputedDesiredValue(Number(e.target.value))} />
 
-          <Button text="Calcular" type="submit" />
+          <Button text="Calcular" type="submit" color="orange" />
         </form>
 
 
@@ -82,7 +82,7 @@ export default function Home() {
                     : '/?error=Insira um valor entre 300 e 10000 reais e selecione uma parcela!'
                 }>
                   <a rel="next" target="_self">
-                    <Button text="Avançar" type="submit" />
+                    <Button text="Avançar" type="submit" color="orange" />
                   </a>
                 </Link>
               </div>

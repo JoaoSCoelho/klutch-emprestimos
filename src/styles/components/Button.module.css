@@ -1,8 +1,15 @@
 .container {
   border-radius: 5px;
-  background-color: var(--orange-1);
   font-size: 1.5rem;
   font-weight: 700;
   color: white;
   padding: 1rem 2rem;
+}
+
+.container.blue {
+  background-color: var(--blue-1);
+}
+
+.container.ornge {
+  background-color: var(--orange-1);
 }
