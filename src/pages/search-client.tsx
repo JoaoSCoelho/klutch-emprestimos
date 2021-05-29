@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import { Button } from '../components/Button'
 import { Main } from '../components/Main'
 import { Subject } from '../components/Subject'
