@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { InputMoney } from '../components/InputMoney'
 import { Subject } from '../components/Subject'
 import styles from '../styles/pages/Home.module.css'
+import { Button } from '../components/Button'
 
 export default function Home() {
   const [desiredValue, setDesiredValue] = useState<number>()
@@ -21,7 +22,7 @@ export default function Home() {
 
           <InputMoney onChange={(e) => setDesiredValue(Number(e.target.value))} />
 
-          <button type="submit">Calcular</button>
+          <Button text="Calcular" type="submit" />
         </form>
 
       </main>
