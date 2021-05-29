@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react'
 import styles from '../styles/components/Button.module.css'
 
 export interface IButtonProps {
@@ -5,10 +6,18 @@ export interface IButtonProps {
   type: 'submit' | 'button' | 'reset';
   color: 'orange' | 'blue';
   disabled?: boolean;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => any;
 }
 
-export function Button({ text, type, color, disabled }: IButtonProps) {
+export function Button({ text, type, color, disabled, onClick }: IButtonProps) {
   return (
-    <button type={type} disabled={disabled} className={`${styles.container} ${styles[color]}`}>{text}</button>
+    <button
+      onClick={(e) => onClick && onClick(e)}
+      type={type}
+      disabled={disabled}
+      className={`${styles.container} ${styles[color]}`}
+    >
+      {text}
+    </button>
   )
 }
