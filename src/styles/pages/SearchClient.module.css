@@ -1,0 +1,81 @@
+.searchByCpf {
+  display: grid;
+  grid-template-columns: 1fr 9rem;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-areas: 'title title' 'input button';
+  
+  max-width: 470px;
+  
+  margin: 4rem auto 0;
+}
+
+.searchByCpf > strong {
+  grid-area: title;
+  text-align: center;
+  color: var(--blue-1);
+  font-weight: 500;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+}
+
+.searchByCpf > input {
+  border-radius: 5px;
+  background-color: var(--background);
+  border: 0;
+
+  grid-area: input;
+
+  font-size: 2rem;
+  color: var(--font);
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.searchByCpf > input.notFound {
+  border: 2px solid red;
+}
+
+
+.clientFound {
+  max-width: 470px;
+  background-color: var(--background);
+  border-radius: 5px;
+  padding: 2.5rem;
+  margin: 3rem auto 0;
+  display: grid;
+  text-align: center;
+  grid-template-rows: repeat(3, 1fr) 80px;
+}
+
+.clientFound > * {
+  margin-bottom: 1.2rem;
+}
+
+.clientFound > *:last-child {
+  margin-bottom: 0;
+}
+
+.clientFound > strong, .clientFound > .cpf {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.clientFound > strong {
+  color: var(--font);
+}
+
+.clientFound > .cpf {
+  color: var(--orange-1);
+}
+
+.clientFound > .clientName {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--blue-1);
+}
+
+.clientFound button {
+  width: 100%;
+  height: 100%;
+  font-size: 2.5rem;
+}
