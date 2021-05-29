@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { InputMoney } from '../components/InputMoney'
 import { Subject } from '../components/Subject'
 import api from '../services/api.json'
@@ -7,14 +7,13 @@ import { IInstallment, ITable, RateTable } from '../components/RateTable'
 import styles from '../styles/pages/Home.module.css'
 import { Button } from '../components/Button'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { Main } from '../components/Main'
+import { LoanContext } from '../contexts/LoanContext'
+import { useRouter } from 'next/router'
 
 export default function Home() {
   const [inputedDesiredValue, setInputedDesiredValue] = useState<number>();
-  const [desiredValue, setDesiredValue] = useState<number>();
-  const [selectedTable, setSelectedTable] = useState<ITable>();
-  const [selectedInstallment, setSelectedInstallment] = useState<IInstallment>()
+  const { desiredValue, installment, rateTable, setDesiredValue, setInstallment, setRateTable } = useContext(LoanContext)
   const router = useRouter();
 
   useEffect(() => { router.query?.error && alert(router.query?.error) }, [router])
@@ -52,16 +51,16 @@ export default function Home() {
                   name='rate-table'
                   id={rateTable.id + ''}
                   value={rateTable.id}
-                  onChange={(e) => e.target.checked && setSelectedTable(rateTable)}
+                  onChange={(e) => e.target.checked && setRateTable(rateTable)}
                 />
 
                 <label htmlFor={rateTable.id + ''}>
                   <RateTable
-                    disabled={selectedTable?.id !== rateTable.id}
+                    disabled={rateTable?.id !== rateTable.id}
                     {...rateTable}
                     className={`${styles.rateTable}`}
-                    onSelect={(installmentID) => setSelectedInstallment(rateTable.installments.find((installment) => installment.id === installmentID))}
-                    selectedInstallmentID={selectedInstallment?.id}
+                    onSelect={(installmentID) => setInstallment(rateTable.installments.find((installment) => installment.id === installmentID))}
+                    selectedInstallmentID={installment?.id}
                   />
                 </label>
               </div>
@@ -70,16 +69,16 @@ export default function Home() {
             <footer className={styles.tableAndInstallmentInfo}>
               <div className={styles.content}>
                 <div className={styles.info}>
-                  <div className={styles.tableName}>Nome: {selectedTable?.name}</div>
-                  <div className={styles.installments}>Parcelas: {selectedInstallment?.installments || ''}</div>
+                  <div className={styles.tableName}>Nome: {rateTable?.name}</div>
+                  <div className={styles.installments}>Parcelas: {installment?.installments || ''}</div>
                   <div className={styles.installmentValue}>
-                    Valor da Parcela: {selectedInstallment && `R$${selectedInstallment?.installmentValue.toFixed(2).replace('.', ',')}`}
+                    Valor da Parcela: {installment && `R$${installment?.installmentValue.toFixed(2).replace('.', ',')}`}
                   </div>
                 </div>
 
                 <Link href={
-                  desiredValue && selectedTable && selectedInstallment
-                    ? `/search-client?rate-table=${selectedTable?.id}&installment=${selectedInstallment?.id}&desiredValue=${desiredValue}`
+                  desiredValue && rateTable && installment
+                    ? `/search-client`
                     : '/?error=Insira um valor entre 300 e 10000 reais e selecione uma parcela!'
                 }>
                   <a rel="next" target="_self">
