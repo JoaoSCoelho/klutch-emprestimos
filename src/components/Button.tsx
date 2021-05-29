@@ -4,10 +4,11 @@ export interface IButtonProps {
   text: string;
   type: 'submit' | 'button' | 'reset';
   color: 'orange' | 'blue';
+  disabled?: boolean;
 }
 
-export function Button({ text, type, color }: IButtonProps) {
+export function Button({ text, type, color, disabled }: IButtonProps) {
   return (
-    <button type={type} className={`${styles.container} ${styles[color]}`}>{text}</button>
+    <button type={type} disabled={disabled} className={`${styles.container} ${styles[color]}`}>{text}</button>
   )
 }

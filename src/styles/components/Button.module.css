@@ -13,3 +13,8 @@
 .container.orange {
   background-color: var(--orange-1);
 }
+
+.container:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
