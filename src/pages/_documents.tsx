@@ -15,6 +15,8 @@ export default class MyDocument extends Document {
           <meta property="og:site_name" content="Klutch" />
           <meta property="og:type" content="website" />
           <meta name="twitter:title" content="Empréstimos | Klutch" />
+
+          <title>Empréstimos | Klutch</title>
         </Head>
 
         <body>

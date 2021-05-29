@@ -41,10 +41,6 @@ export default function SearchClient() {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Empréstimos | Klutch</title>
-      </Head>
-
       <Main className={styles.main}>
         <Subject text="Solicitar Empréstimo" plusIcon />
 

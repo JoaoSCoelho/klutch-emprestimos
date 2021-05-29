@@ -20,10 +20,6 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Empréstimos | Klutch</title>
-      </Head>
-
       <Main className={styles.main}>
         <Subject text="Simulação de Taxas" plusIcon />
 
