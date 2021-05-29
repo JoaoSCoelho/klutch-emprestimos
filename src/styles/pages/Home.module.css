@@ -24,10 +24,11 @@
 
 .desiredTableAndInstallment > .inputContainer {
   height: 100%;
-  background-color: var(--background);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1px solid var(--gray-1);
+  border-radius: 5px;
 }
 
 .desiredTableAndInstallment > .inputContainer > input {

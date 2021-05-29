@@ -3,7 +3,6 @@
   border-radius: 5px;
   text-align: center;
   color: var(--font);
-  border: 1px solid var(--gray-1);
 }
 
 .container th, .container td {
