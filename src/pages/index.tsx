@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { InputMoney } from '../components/InputMoney'
 import { Subject } from '../components/Subject'
 import api from '../services/api.json'
@@ -7,13 +7,16 @@ import { IInstallment, ITable, RateTable } from '../components/RateTable'
 import styles from '../styles/pages/Home.module.css'
 import { Button } from '../components/Button'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export default function Home() {
   const [inputedDesiredValue, setInputedDesiredValue] = useState<number>();
   const [desiredValue, setDesiredValue] = useState<number>();
-  const [showTables, setShowTables] = useState<boolean>(false);
   const [selectedTable, setSelectedTable] = useState<ITable>();
   const [selectedInstallment, setSelectedInstallment] = useState<IInstallment>()
+  const router = useRouter();
+
+  useEffect(() => { router.query?.error && alert(router.query?.error) }, [router])
 
   return (
     <div className={styles.container}>
@@ -27,8 +30,7 @@ export default function Home() {
         {/* Formulário para buscar o valor do empréstimo */}
         <form className={styles.desiredValue} onSubmit={(e) => {
           e.preventDefault();
-          setDesiredValue(inputedDesiredValue);
-          setShowTables(true);
+          setDesiredValue(Number(inputedDesiredValue.toFixed(2)));
         }}>
           <strong className={styles.title}>Valor Desejado</strong>
 
@@ -38,12 +40,13 @@ export default function Home() {
         </form>
 
 
-        {showTables && (
+        {desiredValue && (
           /* Formulário para selecionar a tabela e as parcelas */
           <form className={styles.desiredTableAndInstallment}>
             {api.rateTable.map((rateTable) => (
               <div className={styles.inputContainer} key={rateTable.id}>
                 <input
+                  required
                   type="radio"
                   name='rate-table'
                   id={rateTable.id + ''}
@@ -73,7 +76,11 @@ export default function Home() {
                   </div>
                 </div>
 
-                <Link href={`/search-client?rate-table=${selectedTable?.id}&installment=${selectedInstallment?.id}&desiredValue=${desiredValue}`}>
+                <Link href={
+                  desiredValue && selectedTable && selectedInstallment
+                    ? `/search-client?rate-table=${selectedTable?.id}&installment=${selectedInstallment?.id}&desiredValue=${desiredValue}`
+                    : '/?error=Insira um valor entre 300 e 10000 reais e selecione uma parcela!'
+                }>
                   <a rel="next" target="_self">
                     <Button text="Avançar" type="submit" />
                   </a>
