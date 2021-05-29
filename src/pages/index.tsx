@@ -9,6 +9,7 @@ import { Button } from '../components/Button'
 import Link from 'next/link'
 
 export default function Home() {
+  const [inputedDesiredValue, setInputedDesiredValue] = useState<number>();
   const [desiredValue, setDesiredValue] = useState<number>();
   const [showTables, setShowTables] = useState<boolean>(false);
   const [selectedTable, setSelectedTable] = useState<ITable>();
@@ -23,20 +24,22 @@ export default function Home() {
       <main className={styles.main}>
         <Subject text="Simulação de Taxas" plusIcon />
 
-
+        {/* Formulário para buscar o valor do empréstimo */}
         <form className={styles.desiredValue} onSubmit={(e) => {
           e.preventDefault();
+          setDesiredValue(inputedDesiredValue);
           setShowTables(true);
         }}>
           <strong className={styles.title}>Valor Desejado</strong>
 
-          <InputMoney onChange={(e) => setDesiredValue(Number(e.target.value))} />
+          <InputMoney onChange={(e) => setInputedDesiredValue(Number(e.target.value))} />
 
           <Button text="Calcular" type="submit" />
         </form>
 
 
         {showTables && (
+          /* Formulário para selecionar a tabela e as parcelas */
           <form className={styles.desiredTableAndInstallment}>
             {api.rateTable.map((rateTable) => (
               <div className={styles.inputContainer} key={rateTable.id}>
@@ -70,7 +73,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <Link href={`/search-client?rate-table=${selectedTable?.id}&installment=${selectedInstallment?.id}`}>
+                <Link href={`/search-client?rate-table=${selectedTable?.id}&installment=${selectedInstallment?.id}&desiredValue=${desiredValue}`}>
                   <a rel="next" target="_self">
                     <Button text="Avançar" type="submit" />
                   </a>
