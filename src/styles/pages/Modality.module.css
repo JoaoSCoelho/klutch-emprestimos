@@ -1,0 +1,40 @@
+.content {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.content > strong {
+  color: var(--blue-1);
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.content button {
+  width: 100%;
+  height: 80px;
+  position: relative;
+}
+
+.content > span {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--font);
+  font-weight: 500;
+}
+
+.content > button::after {
+  content: 'Em Breve';
+  position: absolute;
+  display: block;
+  font-size: 1.6rem;
+  color: black;
+  font-weight: 500;
+  right: 0;
+  bottom: 0;
+  transform: translateY(calc(100% + 5px));
+  opacity: 1.5;
+}

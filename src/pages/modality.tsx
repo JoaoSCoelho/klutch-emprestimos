@@ -25,6 +25,8 @@ export default function Modality() {
             </a>
           </Link>
 
+          <span>Ou</span>
+
           <Button color="blue" text="Crédito Consignado" type="button" disabled />
         </div>
       </Main>
