@@ -9,16 +9,26 @@ export interface IInstallment {
   comission: number
 }
 
-export interface IRateTableProps {
+export interface ITable {
+  id: number;
   name: string;
-  installments: IInstallment[]
-  className?: string;
+  installments: IInstallment[];
 }
 
+export interface IRateTableProps extends ITable {
+  className?: string;
+  disabled?: boolean;
+  onSelect?: (installmentID: number) => any;
+  selectedInstallmentID?: number;
+}
 
-export function RateTable({ name, installments, className }: IRateTableProps) {
+export function RateTable({ name, installments, className, disabled, onSelect, selectedInstallmentID }: IRateTableProps) {
   return (
-    <table className={`${styles.container} ${className}`}>
+    <table className={`
+      ${styles.container}
+      ${className}
+      ${disabled && styles.disabled}
+    `}>
       <thead>
         <tr>
           <th colSpan={5}>{name}</th>
@@ -34,7 +44,11 @@ export function RateTable({ name, installments, className }: IRateTableProps) {
 
       <tbody>
         {installments.map((installment) => (
-          <tr key={installment.id} className={(installment.id === 1) && styles.selected}>
+          <tr
+            key={installment.id}
+            className={`${(installment.id === selectedInstallmentID) && styles.selected}`}
+            onClick={() => !disabled && onSelect && onSelect(installment.id)}
+          >
             <td>{installment.installments}</td>
             <td>{installment.installmentInterest}%</td>
             <td>R${installment.installmentValue.toFixed(2).replace('.', ',')}</td>
