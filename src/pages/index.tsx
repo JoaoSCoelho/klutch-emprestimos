@@ -8,6 +8,7 @@ import styles from '../styles/pages/Home.module.css'
 import { Button } from '../components/Button'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { Main } from '../components/Main'
 
 export default function Home() {
   const [inputedDesiredValue, setInputedDesiredValue] = useState<number>();
@@ -24,7 +25,7 @@ export default function Home() {
         <title>Empréstimos | Klutch</title>
       </Head>
 
-      <main className={styles.main}>
+      <Main className={styles.main}>
         <Subject text="Simulação de Taxas" plusIcon />
 
         {/* Formulário para buscar o valor do empréstimo */}
@@ -89,7 +90,7 @@ export default function Home() {
             </footer>
           </form>
         )}
-      </main>
+      </Main>
     </div>
   )
 }
