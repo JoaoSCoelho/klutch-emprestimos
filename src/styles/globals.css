@@ -6,6 +6,9 @@
   --orange-2: #fd8030;
   --font: #777;
   --background: #f8f8f8;
+  --gray-1: #e6e6e6;
+  --yellow-1: #EFDF4B;
+  --yellow-1-opaque: rgba(239, 223, 75, 0.23);
 }
 
 /* Remove margin e padding de todos os elementos e seta box-sizing como border-box (facilita a estilização individual) */
