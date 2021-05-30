@@ -2,6 +2,10 @@ import React, { createContext, Dispatch, ReactElement, ReactNode, SetStateAction
 import { IInstallment, ITable } from "../components/RateTable";
 import { IClient } from "../pages/search-client";
 import { IModality } from '../pages/modality'
+import { ICard } from "../pages/card-data";
+import { IContractType } from "../pages/confirm-data";
+
+
 
 export interface ILoanContextData {
   rateTable?: ITable;
@@ -14,6 +18,10 @@ export interface ILoanContextData {
   setClient?: Dispatch<SetStateAction<IClient>>
   modality?: IModality
   setModality?: Dispatch<SetStateAction<IModality>>
+  card?: ICard;
+  setCard?: Dispatch<SetStateAction<ICard>>
+  contractType?: IContractType;
+  setContractType?: Dispatch<SetStateAction<IContractType>>
 }
 
 export const LoanContext = createContext<ILoanContextData>({});
@@ -27,7 +35,9 @@ export function LoanProvider({ children }: ILoanProviderProps) {
   const [installment, setInstallment] = useState<IInstallment>();
   const [desiredValue, setDesiredValue] = useState<number>();
   const [client, setClient] = useState<IClient | null>();
-  const [modality, setModality] = useState<IModality>()
+  const [modality, setModality] = useState<IModality>();
+  const [card, setCard] = useState<ICard>();
+  const [contractType, setContractType] = useState<IContractType>('AUTOMATIC')
 
   return (
     <LoanContext.Provider value={{
@@ -36,11 +46,15 @@ export function LoanProvider({ children }: ILoanProviderProps) {
       rateTable,
       client,
       modality,
+      card,
+      contractType,
       setDesiredValue,
       setInstallment,
       setRateTable,
       setClient,
-      setModality
+      setModality,
+      setCard,
+      setContractType
     }}>
       {children}
     </LoanContext.Provider>
