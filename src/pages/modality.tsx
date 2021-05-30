@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { useContext } from 'react'
+import { useRouter } from 'next/router'
+import { useContext, useEffect } from 'react'
 import { Button } from '../components/Button'
 import { Main } from '../components/Main'
 import { Subject } from '../components/Subject'
@@ -9,7 +10,12 @@ import styles from '../styles/pages/Modality.module.css'
 export type IModality = 'CREDIT_CARD' | 'PAYROLL_LOANS'
 
 export default function Modality() {
-  const { setModality } = useContext(LoanContext)
+  const { setModality, desiredValue, installment, rateTable, client } = useContext(LoanContext)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!desiredValue || !installment || !rateTable || !client) router.push('/')
+  }, [])
 
   return (
     <div className={styles.container}>
