@@ -1,0 +1,53 @@
+.container > main > form {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.container > main > form > .sectionsContainer {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  margin: auto;
+}
+
+.container > main > form > .sectionsContainer > section {
+  width: 30rem;
+}
+
+
+.container > main > form > .sectionsContainer > section > * {
+  margin-bottom: 2rem;
+}
+
+.container > main > form > .sectionsContainer > section > strong,
+.container > main > form > .sectionsContainer > section > span {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--blue-1);
+}
+
+.container > main > form > .sectionsContainer > section input,
+.container > main > form > .sectionsContainer > section > div {
+  width: 100%;
+  height: 4.5rem;
+}
+
+.container > main > form > .sectionsContainer > section > div {
+  display: flex;
+  align-items: center;
+}
+
+.container > main > form > .sectionsContainer > section > span {
+  text-align: left;
+}
+
+.container > main > form > button {
+  font-size: 2.5rem;
+  height: 6rem;
+  width: max(30%, 300px);
+}
