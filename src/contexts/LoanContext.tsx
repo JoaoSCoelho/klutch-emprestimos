@@ -1,4 +1,4 @@
-import React, { createContext, Dispatch, ReactElement, ReactNode, SetStateAction, useEffect, useState } from "react";
+import React, { createContext, Dispatch, ReactNode, SetStateAction, useState } from "react";
 import { IInstallment, ITable } from "../components/RateTable";
 import { IClient } from "../pages/search-client";
 import { IModality } from '../pages/modality'
