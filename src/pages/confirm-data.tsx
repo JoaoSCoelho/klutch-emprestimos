@@ -13,7 +13,7 @@ import axios from 'axios'
 export type IContractType = 'AUTOMATIC' | 'MANUAL'
 
 export default function ConfirmData() {
-  const { desiredValue, installment, rateTable, client, modality, card, setContractType, contractType } = useContext(LoanContext);
+  const { desiredValue, installment, rateTable, client, modality, card, setContractType, contractType, setId } = useContext(LoanContext);
   const formatedDesiredValue = `R$ ${desiredValue?.toFixed(2).replace('.', ',')}`;
   const fullValue = desiredValue * (1 + (installment?.installmentInterest / 100 + installment?.comission / 100));
   const fullValueFormated = `R$ ${fullValue?.toFixed(2).replace('.', ',')}`;
@@ -61,8 +61,11 @@ export default function ConfirmData() {
               rateTableId: rateTable.id,
               contractType
             })
-
-            router.push('/success')
+              .then(({ data: { solicitationID } }) => {
+                setId(solicitationID)
+                router.push('/success')
+              })
+              .catch(() => alert('Houve um erro ao criar uma nova solicitação, tente novamente mais tarde!'))
           }}
         >
           <strong>Escolha o tipo de contrato:</strong>
