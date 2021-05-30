@@ -1,0 +1,12 @@
+.container > input {
+  background-color: var(--background);
+  color: var(--font);
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 0;
+  padding: 1rem 1.5rem;
+  height: 100%;
+  position: relative;
+}
