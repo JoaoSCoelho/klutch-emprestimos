@@ -22,6 +22,8 @@ export interface ILoanContextData {
   setCard?: Dispatch<SetStateAction<ICard>>
   contractType?: IContractType;
   setContractType?: Dispatch<SetStateAction<IContractType>>
+  id?: number;
+  setId?: Dispatch<SetStateAction<number>>
 }
 
 export const LoanContext = createContext<ILoanContextData>({});
@@ -37,7 +39,8 @@ export function LoanProvider({ children }: ILoanProviderProps) {
   const [client, setClient] = useState<IClient | null>();
   const [modality, setModality] = useState<IModality>();
   const [card, setCard] = useState<ICard>();
-  const [contractType, setContractType] = useState<IContractType>('AUTOMATIC')
+  const [contractType, setContractType] = useState<IContractType>('AUTOMATIC');
+  const [id, setId] = useState<number>();
 
   return (
     <LoanContext.Provider value={{
@@ -48,13 +51,15 @@ export function LoanProvider({ children }: ILoanProviderProps) {
       modality,
       card,
       contractType,
+      id,
       setDesiredValue,
       setInstallment,
       setRateTable,
       setClient,
       setModality,
       setCard,
-      setContractType
+      setContractType,
+      setId
     }}>
       {children}
     </LoanContext.Provider>

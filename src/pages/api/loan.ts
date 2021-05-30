@@ -61,5 +61,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   fs.writeFileSync('./src/services/api.json', JSON.stringify(api, null, 2))
 
-  res.status(201).send('OK')
+  res.status(201).json({ solicitationID: api.solicitations.length })
 }
