@@ -2,45 +2,109 @@
   "rateTable": [
     {
       "id": 1,
-      "name": "tabela 1",
+      "name": "Tabela 1",
       "installments": [
         {
           "id": 1,
           "installments": 1,
-          "installmentInterest": 100,
-          "installmentValue": 444.00,
-          "fullValue": 444.00,
+          "installmentInterest": 5,
+          "installmentValue": 8030.57325,
+          "fullValue": 8030.57325,
           "comission": 1.33
         },
         {
           "id": 2,
           "installments": 2,
-          "installmentInterest": 20.5,
-          "installmentValue": 1338.76,
-          "fullValue": 2677.51,
-          "comission": 455.51
+          "installmentInterest": 10,
+          "installmentValue": 4204.099125,
+          "fullValue": 8408.19825,
+          "comission": 1.33
+        },
+        {
+          "id": 3,
+          "installments": 3,
+          "installmentInterest": 15,
+          "installmentValue": 2928.60775,
+          "fullValue": 8785.82325,
+          "comission": 1.33
+        },
+        {
+          "id": 4,
+          "installments": 4,
+          "installmentInterest": 20,
+          "installmentValue": 2290.8620625,
+          "fullValue": 9163.44825,
+          "comission": 1.33
+        },
+        {
+          "id": 5,
+          "installments": 5,
+          "installmentInterest": 25,
+          "installmentValue": 1908.21465,
+          "fullValue": 9541.07325,
+          "comission": 1.33
+        },
+        {
+          "id": 6,
+          "installments": 6,
+          "installmentInterest": 30,
+          "installmentValue": 1653.116375,
+          "fullValue": 9918.69825,
+          "comission": 1.33
         }
       ]
     },
     {
       "id": 2,
-      "name": "tabela 2",
+      "name": "Tabela 2",
       "installments": [
         {
-          "id": 3,
+          "id": 7,
           "installments": 1,
-          "installmentInterest": 10,
-          "installmentValue": 22.00,
-          "fullValue": 224.00,
-          "comission": 1.33
+          "installmentInterest": 4.5,
+          "installmentValue": 8118.9375,
+          "fullValue": 8118.9375,
+          "comission": 3
         },
         {
-          "id": 4,
+          "id": 8,
           "installments": 2,
-          "installmentInterest": 20.5,
-          "installmentValue": 2.76,
-          "fullValue": 9.51,
-          "comission": 3.51
+          "installmentInterest": 9,
+          "installmentValue": 4229.4,
+          "fullValue": 8458.8,
+          "comission": 3
+        },
+        {
+          "id": 9,
+          "installments": 3,
+          "installmentInterest": 13.5,
+          "installmentValue": 2932.8875,
+          "fullValue": 8798.6625,
+          "comission": 3
+        },
+        {
+          "id": 10,
+          "installments": 4,
+          "installmentInterest": 18,
+          "installmentValue": 2284.63125,
+          "fullValue": 9138.525,
+          "comission": 3
+        },
+        {
+          "id": 11,
+          "installments": 5,
+          "installmentInterest": 22.5,
+          "installmentValue": 1895.6775,
+          "fullValue": 9478.3875,
+          "comission": 3
+        },
+        {
+          "id": 12,
+          "installments": 6,
+          "installmentInterest": 27,
+          "installmentValue": 1648.9625,
+          "fullValue": 9893.775,
+          "comission": 3
         }
       ]
     }
@@ -48,41 +112,92 @@
   "client": [
     {
       "id": 1,
-      "name": "Teste Cliente",
-      "phone": "71999999999",
-      "cpf": "9999999999",
+      "name": "Gabriel Josias Matos",
+      "phone": "71999745842",
+      "cpf": "48485445245",
       "bank": {
         "label": "003 - Banco da Amazonia S.A.",
         "accountTypeLabel": "Conta Corrente",
-        "accountNumber": "378282246310005"
+        "accountNumber": "346821575214541",
+        "agency": "7526"
       }
     },
     {
-      "id": 1,
-      "name": "Teste Cliente",
-      "phone": "71222222222",
-      "cpf": "2222222229",
+      "id": 2,
+      "name": "Ellen Maria Oliveira",
+      "phone": "11975468233",
+      "cpf": "84655428416",
       "bank": {
-        "label": "003 - Banco da Amazonia S.A.",
+        "label": "001 - Banco do Brasil S.A.",
         "accountTypeLabel": "Conta Corrente",
-        "accountNumber": "378282246310005"
+        "accountNumber": "178282246310005",
+        "agency": "1235"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Camila Teixeira Neves",
+      "phone": "66942856668",
+      "cpf": "47515468525",
+      "bank": {
+        "label": "237 - Bradesco S.A.",
+        "accountTypeLabel": "Poupança",
+        "accountNumber": "237586482065454",
+        "agency": "8045"
       }
     }
   ],
-  "solicitation": [
+  "solicitations": [
     {
       "id": 1,
       "clientId": 1,
-      "installmentInterest": 20.5,
-      "installmentInterestValue": 20.5,
-      "comission": 5.5,
-      "comissionValue": 122.21,
-      "installmentValue": 1338.76,
+      "installmentInterest": 22.5,
+      "installmentInterestValue": 499.5,
+      "comission": 3,
+      "comissionValue": 66.6,
+      "cardExpiration": "20/02/2024",
+      "installmentValue": 557.22,
       "cardNumber": "4012001037141112",
-      "desiredValue": 2222,
-      "totalLoan": 2677.51,
-      "installmentId": 4,
-      "rateTableId": 2
+      "cardCvc": "254",
+      "desiredValue": 2220,
+      "totalLoan": 2786.1,
+      "installmentId": 11,
+      "rateTableId": 2,
+      "contractType": "MANUAL"
+    },
+    {
+      "id": 2,
+      "clientId": 1,
+      "installmentInterest": 15,
+      "installmentInterestValue": 150,
+      "comission": 1.33,
+      "comissionValue": 13.3,
+      "cardExpiration": "17/10/2023",
+      "installmentValue": 387.76666666666665,
+      "cardNumber": "8547245482458645",
+      "cardCvc": "118",
+      "desiredValue": 1000,
+      "totalLoan": 1163.3,
+      "installmentId": 3,
+      "rateTableId": 1,
+      "contractType": "MANUAL"
+    },
+    {
+      "id": 3,
+      "clientId": 2,
+      "installmentInterest": 4.5,
+      "installmentInterestValue": 68.39999999999999,
+      "comission": 3,
+      "comissionValue": 45.6,
+      "cardExpiration": "06/08/2021",
+      "installmentValue": 1634,
+      "cardNumber": "9854624843215454",
+      "cardCvc": "6824",
+      "desiredValue": 1520,
+      "totalLoan": 1634,
+      "installmentId": 7,
+      "rateTableId": 2,
+      "contractType": "AUTOMATIC"
     }
   ]
 }
