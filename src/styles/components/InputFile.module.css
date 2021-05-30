@@ -1,0 +1,24 @@
+.container {
+  background-color: var(--background);
+  color: var(--font);
+  font-size: 1.2rem;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container > input {
+  display: none;
+}
+
+.container > span {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.container > label {
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+}
