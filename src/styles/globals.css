@@ -5,11 +5,13 @@
   --orange-1: #ef9c4b;
   --orange-2: #fd8030;
   --font: #777;
+  --font-2: #484646;
   --background: #f8f8f8;
   --gray-1: #e6e6e6;
   --yellow-1: #EFDF4B;
   --yellow-1-opaque: #efdf4b3b;
   --green-1: #E8FFE3;
+  --green-2: #31AC2B;
 }
 
 /* Remove margin e padding de todos os elementos e seta box-sizing como border-box (facilita a estilização individual) */

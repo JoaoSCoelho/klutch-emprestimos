@@ -1,0 +1,107 @@
+.content {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.content > strong {
+  font-weight: 700;
+  color: var(--blue-1);
+  font-size: 2.7rem;
+}
+
+.solicitationSummary {
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+.solicitationSummary > strong {
+  font-size: 1.8rem;
+  color: var(--blue-1);
+  font-weight: 500;
+}
+
+.solicitationSummary > .cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.solicitationSummary > .cardsContainer > div {
+  width: calc(50% - 1rem);
+}
+
+.solicitationSummary > .cardsContainer > div > span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.solicitationSummary > .cardsContainer > div > span > .name,
+.solicitationSummary > .cardsContainer > div > span > .phone,
+.solicitationSummary > .cardsContainer > div > span > .endCardNumber,
+.solicitationSummary > .cardsContainer > div > span > .cardValidity {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--font);
+  font-size: 1.3rem;
+}
+
+.solicitationSummary > .cardsContainer > div:nth-child(3) > span {
+  width: 75%;
+}
+
+.solicitationSummary > .cardsContainer > div > span > .key {
+  color: var(--blue-1);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.3rem;
+}
+
+.solicitationSummary > .cardsContainer > div > span > .money {
+  font-weight: 900;
+  color: var(--green-2);
+  font-size: 2rem;
+}
+
+.solicitationSummary > .cardsContainer > div > span > .installmentValue {
+  font-weight: 700;
+  font-style: italic;
+  font-size: 2.1rem;
+}
+
+.solicitationSummary > .cardsContainer > div > span > .cardFlag {
+  color: var(--font-2);
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.solicitationSummary > .cardsContainer > div > span > .installmentInterest {
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--orange-1);
+}
+
+.solicitationSummary > .cardsContainer > div > span > .installments {
+  font-weight: 700;
+  font-size: 2.3rem;
+  font-style: italic;
+  color: var(--orange-1);
+}
+
+
+
+.content button {
+  font-size: 2.3rem;
+  height: 6rem;
+  margin-top: 2rem;
+}
+
+.content > span {
+  display: block;
+  margin-top: 1rem;
+
+  font-size: 1.2rem;
+  color: var(--blue-1);
+}
