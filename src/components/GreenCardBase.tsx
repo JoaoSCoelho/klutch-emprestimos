@@ -9,7 +9,7 @@ export interface IGreenCardBase {
 export function GreenCardBase({ children }: IGreenCardBase) {
   return (
     <div className={styles.container}>
-      {children}
+      <span>{children}</span>
       <Image src="/images/check-blue.svg" width={30} height={30} />
     </div>
   )
