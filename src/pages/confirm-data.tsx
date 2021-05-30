@@ -62,7 +62,7 @@ export default function ConfirmData() {
               contractType
             })
 
-            router.push('/sucess')
+            router.push('/success')
           }}
         >
           <strong>Escolha o tipo de contrato:</strong>
