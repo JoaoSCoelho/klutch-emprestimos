@@ -1,0 +1,30 @@
+.container {
+  background-color: var(--background);
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-style: italic;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  min-width: 30rem;
+  height: 6rem;
+  align-items: center;
+}
+
+.container.green {
+  background-color: var(--green-1)
+}
+
+.container > .key {
+  color: var(--blue-1);
+  font-size: 1.5rem;
+}
+
+.container > .value {
+  background-color: white;
+  color: var(--orange-1);
+  border-radius: 5px;
+  min-width: 230px;
+  padding: 1rem;
+  font-size: 1.6rem;
+}
