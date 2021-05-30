@@ -53,7 +53,7 @@ export function RateTable({ name, installments, className, disabled, onSelect, s
             <td>{installment.installmentInterest}%</td>
             <td>R${installment.installmentValue.toFixed(2).replace('.', ',')}</td>
             <td>R${installment.fullValue.toFixed(2).replace('.', ',')}</td>
-            <td>R${installment.comission.toFixed(2).replace('.', ',')}</td>
+            <td>R${(installment.fullValue - (installment.fullValue / (1 + installment.comission / 100))).toFixed(2).replace('.', ',')}</td>
           </tr>
         ))}
       </tbody>
