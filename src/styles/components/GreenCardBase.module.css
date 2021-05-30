@@ -5,4 +5,5 @@
   display: grid;
   grid-template-columns: 1fr 30px;
   min-height: 90px;
+  gap: 2rem;
 }
