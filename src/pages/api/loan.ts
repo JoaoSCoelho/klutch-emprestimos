@@ -53,7 +53,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       totalLoan,
       installmentId,
       rateTableId,
-      contractType
+      contractType,
+      timestamp: Date.now()
     })
 
     fs.writeFileSync('./src/services/api.json', JSON.stringify(api, null, 2))
