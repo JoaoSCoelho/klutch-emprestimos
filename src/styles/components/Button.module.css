@@ -14,6 +14,10 @@
   background-color: var(--orange-1);
 }
 
+.container.red {
+  background-color: var(--red);
+}
+
 .container:disabled {
   cursor: not-allowed;
   opacity: 0.4;

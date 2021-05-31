@@ -4,7 +4,7 @@ import styles from '../styles/components/Button.module.css'
 export interface IButtonProps {
   text?: string;
   type: 'submit' | 'button' | 'reset';
-  color: 'orange' | 'blue';
+  color: 'orange' | 'blue' | 'red';
   disabled?: boolean;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => any;
   className?: string;
