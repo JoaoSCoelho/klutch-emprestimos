@@ -1,0 +1,176 @@
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.content > .left {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 5rem repeat(3, 1fr);
+  grid-template-areas: 'loanSystem loanSystem' 'fullValue desiredValue' 'cardFront cardBack' 'cardSelfie null';
+  column-gap: 2rem;
+  row-gap: 1rem;
+}
+
+.content > .left > div {
+  background-color: var(--background);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.content > .left > .loanSystem {
+  grid-area: loanSystem;
+  color: var(--font);
+  font-size: 1.9rem;
+  font-weight: 500;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.content > .left > .loanSystem > span {
+  font-weight: bold;
+  color: var(--blue-1);
+}
+
+.content > .left > div:not(.loanSystem) > strong {
+  color: var(--font);
+  font-size: 1.8rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.content > .left > div:not(.loanSystem) > .money {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: var(--green-2);
+  font-weight: 700;
+  font-size: 2.3rem;
+}
+
+.content > .left > div:not(.loanSystem) > a {
+  margin-top: 1rem;
+  color: #2D98B4;
+  text-decoration: underline;
+  font-size: 1.4rem;
+}
+
+
+/* ---------------------------------- */
+
+.content > .right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.content > .right > * {
+  background-color: var(--background);
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+.content > .right > .contractType {
+  font-size: 2rem;
+  color: var(--font);
+  font-weight: 500;
+  padding: 1.4rem 2rem;
+}
+
+.content > .right > .contractType > span {
+  color: var(--blue-1);
+  font-weight: 700;
+}
+
+.content > .right > .modality > strong,
+.content > .right > .clientData > strong,
+.content > .right > .generalInfo > strong {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--font);
+}
+
+.content > .right > .modality > .info,
+.content > .right > .clientData > .info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.4rem;
+  color: var(--font);
+  font-weight: 700;
+  font-style: italic;
+  margin-top: 2rem;
+}
+
+.content > .right > .modality > .info > span:first-child {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.content > .right > .modality > .info > .validityAndCvc {
+  display: flex;
+  gap: 2rem;
+}
+
+.content > .right > .modality > .info .money {
+  color: var(--green-2);
+}
+
+
+.content > .right > .clientData > .info {
+  align-items: initial;
+}
+
+
+.content > .right > .generalInfo {
+  background-color: var(--blue-3);
+  border: 1px dashed var(--blue-1);
+}
+
+.content > .right > .generalInfo > .date {
+  display: block;
+  text-align: center;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--font);
+  margin-top: 1.7rem;
+}
+
+.content > .right > .generalInfo > .loanState {
+  background-color: var(--orange-1);
+  border-radius: 5px;
+  padding: 1rem 6rem;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  margin-top: 1.7rem;
+  margin-bottom: 1.7rem;
+  width: fit-content;
+  font-size: 1.4rem;
+  color: white;
+  font-weight: 700;
+  gap: 0.5rem;
+}
+
+.content > .right > .generalInfo > .buttonsContainer {
+  display: flex;
+  gap: 1.7rem;
+  justify-content: center;
+}
+
+.content > .right > .generalInfo > .buttonsContainer > button > div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 1.4rem;
+}
