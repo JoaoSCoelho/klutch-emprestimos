@@ -62,7 +62,7 @@ export default function Success() {
               </GreenCardBase>
               <GreenCardBase>
                 <span className={styles.key}>Valor desejado:</span>
-                <span className={`${styles.desiredValue} ${styles.money}`}>R$ {desiredValue.toFixed(2).replace('.', ',')}</span>
+                <span className={`${styles.desiredValue} ${styles.money}`}>R$ {desiredValue?.toFixed(2).replace('.', ',')}</span>
               </GreenCardBase>
               <GreenCardBase>
                 <span className={styles.key}>Valor da Parcela:</span>
