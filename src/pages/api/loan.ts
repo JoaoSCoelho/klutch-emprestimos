@@ -57,7 +57,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       timestamp: Date.now()
     })
 
-    fs.writeFileSync('./src/services/api.json', JSON.stringify(api, null, 2))
+    fs.writeFileSync(__dirname + '../../services/api.json', JSON.stringify(api, null, 2))
 
     res.status(201).json({ solicitationID: api.solicitations.length })
   } else return res.status(404).send({ message: 'Not found' });
