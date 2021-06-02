@@ -145,6 +145,18 @@
         "accountNumber": "237586482065454",
         "agency": "8045"
       }
+    },
+    {
+      "id": 4,
+      "name": "João Coelho",
+      "phone": "74999336789",
+      "cpf": "11111111111",
+      "bank": {
+        "label": "237 - Bradesco S.A.",
+        "accountTypeLabel": "Poupança",
+        "accountNumber": "568585482065454",
+        "agency": "0118"
+      }
     }
   ],
   "solicitations": []
