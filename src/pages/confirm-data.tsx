@@ -8,7 +8,7 @@ import { RateTable } from '../components/RateTable'
 import { Subject } from '../components/Subject'
 import { LoanContext } from '../contexts/LoanContext'
 import styles from '../styles/pages/ConfirmData.module.css'
-import axios from 'axios'
+import api from '../services/api.json'
 
 export type IContractType = 'AUTOMATIC' | 'MANUAL'
 
@@ -45,7 +45,9 @@ export default function ConfirmData() {
           onSubmit={(e) => {
             e.preventDefault()
 
-            axios.post('/api/loan', {
+            api.solicitations.push({
+              id: api.solicitations.length + 1,
+              timestamp: Date.now(),
               clientId: client.id,
               installmentInterest: installment.installmentInterest,
               installmentInterestValue: desiredValue * (installment.installmentInterest / 100),
@@ -61,11 +63,9 @@ export default function ConfirmData() {
               rateTableId: rateTable.id,
               contractType
             })
-              .then(({ data: { solicitationID } }) => {
-                setId(solicitationID)
-                router.push('/success')
-              })
-              .catch(() => alert('Houve um erro ao criar uma nova solicitação, tente novamente mais tarde!'))
+
+            setId(api.solicitations.length)
+            router.push('/success')
           }}
         >
           <strong>Escolha o tipo de contrato:</strong>

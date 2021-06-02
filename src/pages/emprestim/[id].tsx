@@ -1,7 +1,6 @@
 import { Main } from '../../components/Main'
 import { Subject } from '../../components/Subject'
 import styles from '../../styles/pages/EmprestimDetails.module.css'
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Router, useRouter } from 'next/router'
 import Image from 'next/image'
@@ -33,12 +32,11 @@ export default function EmprestimDetails() {
 
   useEffect(() => {
     if (!router.query.id) return;
-    axios.get('/api/loan/' + router.query.id)
-      .then(({ data }) => setEmprestim(data))
-      .catch(() => {
-        alert('Houve um erro ao encontrar esse empréstimo, tente novamente mais tarde!')
-        router.push('/')
-      })
+
+    api.solicitations.find((solicitation) => solicitation.id + '' === router.query.id)
+      ? setEmprestim(api.solicitations.find((solicitation) => solicitation.id + '' === router.query.id))
+      : alert('Não existe uma solicitação com esse ID')
+
   }, [router])
 
   return (
