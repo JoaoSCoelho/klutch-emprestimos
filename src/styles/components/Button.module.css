@@ -4,18 +4,31 @@
   font-weight: 700;
   color: white;
   padding: 1rem 2rem;
+  transition: background-color 0.2s;
 }
 
 .container.blue {
   background-color: var(--blue-1);
 }
 
+.container.blue:not(:disabled):hover {
+  background-color: var(--blue-2);
+}
+
 .container.orange {
   background-color: var(--orange-1);
 }
 
+.container.orange:not(:disabled):hover {
+  background-color: var(--orange-2);
+}
+
 .container.red {
   background-color: var(--red);
+}
+
+.container.red:not(:disabled):hover {
+  background-color: var(--red-2);
 }
 
 .container:disabled {
