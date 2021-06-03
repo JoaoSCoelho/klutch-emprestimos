@@ -1,34 +1,33 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Acesse
 
-## Getting Started
+[Main](http://klutch-emprestimos.vercel.app/)
+[Firebase](https://klutch-emprestimos-g9rocfj9z-joaoscoelho.vercel.app/)
 
-First, run the development server:
+# Como iniciar
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. Certifique-se de ter o **Node.JS** instalado em sua máquina.
+2. Verifique também se o **npm** está instalado *(geralmente é instalado automaticamente ao instalar o Node.JS)*
+3. Execute no diretório do projeto o comando `npm install` ou caso tenha **yarn** pode executar também `yarn install`, para instalar todas as dependências do projeto.
+4. Após instaladas, execute o comando `yarn dev` para rodar diretamente uma versão de desenvolvimento do site ou para rodar uma versão final use: 
+   1º: `yarn build` para criar o diretório .next com os arquivos compilados do projeto.
+   2º: `yarn start` para rodar os arquivos criados pelo build
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pronto, o site estará funcionando em `http://localhost` na porta indicada pelo terminal.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Versões
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+O projeto tem duas versões, uma delas se encontra na branch `main` e a outra na branch `implement-firebase-rtdb`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+[**Main**](https://github.com/JoaoSCoelho/klutch-emprestimos): Versão que ao realizar uma nova solicitação, altera o objeto `api.json` em memória, sendo assim, ao recarregar a página, o que estava em memória é limpo.
 
-## Learn More
+[**Firebase**](https://github.com/JoaoSCoelho/klutch-emprestimos/tree/implement-firebase-rtdb): Versão que integra o banco de dados Realtime Database do Firebase para salvar em nuvem os dados de novas solicitações.
 
-To learn more about Next.js, take a look at the following resources:
+# Dependência
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O projeto conta com o auxílios das seguintes dependências:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* `Axios`
+* `Firebase`
+* `Next`
+* `React`
+* `React-dom`
