@@ -14,6 +14,13 @@
 
 Pronto, o site estará funcionando em `http://localhost` na porta indicada pelo terminal.
 
+## CPFs cadastrados para teste
+
+* `484.854.452-45`
+* `846.554.284-16`
+* `475.154.685-25`
+* `111.111.111-11`
+
 # Versões
 
 O projeto tem duas versões, uma delas se encontra na branch `main` e a outra na branch `implement-firebase-rtdb`.
