@@ -73,7 +73,7 @@ export default function Home() {
 
                 <Link href={
                   desiredValue && rateTable && installment
-                    ? `/search-client`
+                    ? `/search-client?redirect=modality`
                     : '/?error=Insira um valor entre 300 e 10000 reais e selecione uma parcela!'
                 }>
                   <a rel="next" target="_self">

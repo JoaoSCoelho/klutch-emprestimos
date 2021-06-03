@@ -35,13 +35,18 @@ export default function SearchClient() {
   }
 
   useEffect(() => {
-    if (!desiredValue || !installment || !rateTable) router.push('/')
-  }, [])
+    if (!router.query?.redirect) return;
+
+    if (router.query.redirect === 'modality') {
+      if (!desiredValue || !installment || !rateTable) router.push('/')
+    }
+
+  }, [router])
 
   return (
     <div className={styles.container}>
       <Main className={styles.main}>
-        <Subject text="Solicitar Empréstimo" plusIcon />
+        <Subject text={router.query.redirect === 'modality' ? "Solicitar Empréstimo" : 'Buscar cliente'} plusIcon />
 
         <form className={styles.searchByCpf} onSubmit={(e) => {
           e.preventDefault()
@@ -77,7 +82,7 @@ export default function SearchClient() {
             <span className={styles.cpf}>{cpf}</span>
             <span className={styles.clientName}>{client.name}</span>
 
-            <Link href="/modality">
+            <Link href={router.query?.redirect as string || '/'}>
               <a rel="next" target="_self">
                 <Button text="Solicitar" type="button" color="blue" />
               </a>
