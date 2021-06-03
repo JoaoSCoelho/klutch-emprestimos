@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Button } from '../components/Button'
 import { CardKeyValue } from '../components/CardKeyValue'
 import { Main } from '../components/Main'
@@ -19,6 +19,7 @@ export default function ConfirmData() {
   const fullValue = desiredValue * (1 + (installment?.installmentInterest / 100 + installment?.comission / 100));
   const fullValueFormated = `R$ ${fullValue?.toFixed(2).replace('.', ',')}`;
   const installmentValueFormated = `R$ ${(fullValue / installment?.installments).toFixed(2).replace('.', ',')}`
+  const [sending, setSending] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -44,7 +45,8 @@ export default function ConfirmData() {
         <form
           className={`${styles.contractType} ${styles[contractType?.toLocaleLowerCase()]}`}
           onSubmit={async (e) => {
-            e.preventDefault()
+            e.preventDefault();
+            setSending(true);
 
             card.photos.front && await storage.ref('cards/' + card.photos.front.name).put(card.photos.front)
             card.photos.back && await storage.ref('cards/' + card.photos.back.name).put(card.photos.back)
@@ -75,6 +77,7 @@ export default function ConfirmData() {
 
 
             setId(api.solicitations.length)
+            setSending(false)
             router.push('/success')
           }}
         >
@@ -88,9 +91,22 @@ export default function ConfirmData() {
             <label htmlFor="manual">Manual</label>
           </div>
 
-          <Button color="blue" type="submit" className={styles.concludeButton}>
-            <Image src="/images/check-white.svg" width={40} height={30} />
-            <span>Concluir</span>
+          <Button color="blue" type="submit" className={styles.concludeButton} disabled={sending}>
+            {sending
+              ? (<svg viewBox={`0 0 90 90`}>
+                <circle
+                  className={styles.circle}
+                  fill="none"
+                  cx={48}
+                  cy={48}
+                  r={39}
+                />
+              </svg>)
+              : (<>
+                <Image src="/images/check-white.svg" width={40} height={30} />
+                <span>Concluir</span>
+              </>)
+            }
           </Button>
         </form>
 
