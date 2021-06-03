@@ -10,7 +10,7 @@ export function SideBar() {
     <div className={styles.container} style={{ display: open ? 'initial' : 'none' }}>
       <ul>
         <li>
-          <Link href="search-client?redirect=solicitations">
+          <Link href="/search-client?redirect=solicitations">
             <a>
               <div>
                 Solicitações

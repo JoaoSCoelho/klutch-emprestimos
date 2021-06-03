@@ -1,9 +1,8 @@
 .container {
   background-color: var(--blue-1);
-  height: calc(100vh - 60px);
   overflow: auto;
   min-width: 300px;
-  position: fixed;
+  position: absolute;
   z-index: 2;
   padding: 1rem;
 }
@@ -27,4 +26,9 @@
   color: white;
   font-size: 1.3rem;
   font-weight: 500;
+  transition: 0.2s;
+}
+
+.container > ul > li  div:hover {
+  background-color: #ffffff62;
 }
