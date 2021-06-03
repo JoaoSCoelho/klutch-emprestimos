@@ -1,0 +1,30 @@
+.container {
+  background-color: var(--blue-1);
+  height: calc(100vh - 60px);
+  overflow: auto;
+  min-width: 300px;
+  position: fixed;
+  z-index: 2;
+  padding: 1rem;
+}
+
+.container > ul {
+  list-style: none;
+  width: 100%;
+}
+
+.container > ul > li {
+  width: 100%;
+}
+
+.container > ul > li  div {
+  height: 50px;
+  border-radius: 5px;
+  background-color: #ffffff20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
