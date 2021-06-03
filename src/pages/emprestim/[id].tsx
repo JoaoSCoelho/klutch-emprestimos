@@ -23,7 +23,10 @@ export interface ISolicitation {
   installmentId: number,
   rateTableId: number,
   contractType: string,
-  timestamp: number
+  timestamp: number,
+  cardImageFrontURL?: string,
+  cardImageBackURL?: string,
+  cardImageSelfieURL?: string
 }
 
 export default function EmprestimDetails() {
@@ -58,18 +61,18 @@ export default function EmprestimDetails() {
             </div>
             <div className={`${styles.cardFront} ${styles.cardImage}`}>
               <strong>Frente do cartão</strong>
-              <Image src="/images/file-orange.svg" width={100} height={100} />
-              <a href="/images/file-orange.svg">Ver comprovante</a>
+              <Image src={emprestim?.cardImageFrontURL || "/images/file-orange.svg"} width={100} height={100} />
+              <a href={emprestim?.cardImageFrontURL || "/images/file-orange.svg"}>Ver comprovante</a>
             </div>
             <div className={`${styles.cardBack} ${styles.cardImage}`}>
               <strong>Verso do cartão</strong>
-              <Image src="/images/file-orange.svg" width={100} height={100} />
-              <a href="/images/file-orange.svg">Ver comprovante</a>
+              <Image src={emprestim?.cardImageBackURL || "/images/file-orange.svg"} width={100} height={100} />
+              <a href={emprestim?.cardImageBackURL || "/images/file-orange.svg"}>Ver comprovante</a>
             </div>
             <div className={`${styles.cardSelfie} ${styles.cardImage}`}>
               <strong>Selfie com cartão</strong>
-              <Image src="/images/file-orange.svg" width={100} height={100} />
-              <a href="/images/file-orange.svg">Ver comprovante</a>
+              <Image src={emprestim?.cardImageSelfieURL || "/images/file-orange.svg"} width={100} height={100} />
+              <a href={emprestim?.cardImageSelfieURL || "/images/file-orange.svg"}>Ver comprovante</a>
             </div>
           </section>
 

@@ -13,6 +13,11 @@ export interface ICard {
   number: string;
   expiration: string;
   cvc: string;
+  photos: {
+    front?: File;
+    back?: File;
+    selfie?: File;
+  }
 }
 
 export default function CardData() {
@@ -20,6 +25,9 @@ export default function CardData() {
   const [inputedCardNumber, setInputedCardNumber] = useState<string>()
   const [inputedCardExpiration, setInputedCardExpiration] = useState<string>()
   const [inputedCardCvc, setInputedCardCvc] = useState<string>()
+  const [inputedCardFront, setInputedCardFront] = useState<File>()
+  const [inputedCardBack, setInputedCardBack] = useState<File>()
+  const [inputedCardSelfie, setInputedCardSelfie] = useState<File>()
   const { desiredValue, installment, rateTable, client, modality, setCard } = useContext(LoanContext)
   const router = useRouter()
 
@@ -41,7 +49,12 @@ export default function CardData() {
             cvc: inputedCardCvc,
             expiration: inputedCardExpiration,
             name: inputedCardName,
-            number: inputedCardNumber
+            number: inputedCardNumber,
+            photos: {
+              back: inputedCardBack,
+              front: inputedCardFront,
+              selfie: inputedCardSelfie
+            }
           })
 
           router.push('/confirm-data');
@@ -59,9 +72,9 @@ export default function CardData() {
             <section className={styles.attachments}>
               <strong className={styles.title}>Faça o upload dos anexos do cartão:</strong>
 
-              <InputFile description="Cartão de Crédito (Frente)" id="credit-card-front" />
-              <InputFile description="Cartão de Crédito (Verso)" id="credit-card-back" />
-              <InputFile description="Selfie com cartão de crédito" id="credit-card-selfie" />
+              <InputFile description="Cartão de Crédito (Frente)" id="credit-card-front" onChange={(e) => setInputedCardFront(e.currentTarget.files[e.currentTarget.files.length - 1])} />
+              <InputFile description="Cartão de Crédito (Verso)" id="credit-card-back" onChange={(e) => setInputedCardBack(e.currentTarget.files[e.currentTarget.files.length - 1])} />
+              <InputFile description="Selfie com cartão de crédito" id="credit-card-selfie" onChange={(e) => setInputedCardSelfie(e.currentTarget.files[e.currentTarget.files.length - 1])} />
 
               <span>Atenção: As fotos devem estar legíveis, com todas as informações visíveis do cartão.</span>
             </section>

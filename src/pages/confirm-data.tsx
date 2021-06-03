@@ -9,6 +9,7 @@ import { Subject } from '../components/Subject'
 import { LoanContext } from '../contexts/LoanContext'
 import styles from '../styles/pages/ConfirmData.module.css'
 import api from '../services/api.json'
+import { storage } from '../firebase'
 
 export type IContractType = 'AUTOMATIC' | 'MANUAL'
 
@@ -42,8 +43,12 @@ export default function ConfirmData() {
 
         <form
           className={`${styles.contractType} ${styles[contractType?.toLocaleLowerCase()]}`}
-          onSubmit={(e) => {
+          onSubmit={async (e) => {
             e.preventDefault()
+
+            card.photos.front && await storage.ref('cards/' + card.photos.front.name).put(card.photos.front)
+            card.photos.back && await storage.ref('cards/' + card.photos.back.name).put(card.photos.back)
+            card.photos.selfie && await storage.ref('cards/' + card.photos.selfie.name).put(card.photos.selfie)
 
             api.solicitations.push({
               id: api.solicitations.length + 1,
@@ -61,8 +66,13 @@ export default function ConfirmData() {
               totalLoan: fullValue,
               installmentId: installment.id,
               rateTableId: rateTable.id,
-              contractType
+              contractType,
+              cardImageFrontURL: card.photos.front ? await storage.ref('cards/' + card.photos.front.name).getDownloadURL() : undefined,
+              cardImageBackURL: card.photos.back ? await storage.ref('cards/' + card.photos.back.name).getDownloadURL() : undefined,
+              cardImageSelfieURL: card.photos.selfie ? await storage.ref('cards/' + card.photos.selfie.name).getDownloadURL() : undefined
             })
+
+
 
             setId(api.solicitations.length)
             router.push('/success')
