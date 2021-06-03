@@ -1,12 +1,11 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import fs from 'fs'
-import api from '../../../services/api.json'
+import { database } from '../../../firebase';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'GET') {
     const { loanId } = req.query;
 
-    const loan = api.solicitations.find((solicitation) => solicitation.id + '' === loanId)
+    const loan = (await database.ref('solicitations/' + loanId).get()).val()
 
     if (!loan) return res.status(404).send({ message: 'Not found' })
 

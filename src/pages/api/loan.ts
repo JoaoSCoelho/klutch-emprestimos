@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import fs from 'fs'
 import api from '../../services/api.json'
+import { database } from '../../firebase';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
@@ -18,7 +19,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       totalLoan,
       installmentId,
       rateTableId,
-      contractType
+      contractType,
+      cardImageFrontURL,
+      cardImageBackURL,
+      cardImageSelfieURL
     } = req.body;
 
     if (
@@ -38,27 +42,32 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       !contractType
     ) return res.status(400).send({ message: "Missing props!" })
 
-    api.solicitations.push({
-      id: api.solicitations.length + 1,
-      clientId,
-      installmentInterest,
-      installmentInterestValue,
-      comission,
-      comissionValue,
-      cardExpiration,
-      installmentValue,
-      cardNumber,
-      cardCvc,
-      desiredValue,
-      totalLoan,
-      installmentId,
-      rateTableId,
-      contractType,
-      timestamp: Date.now()
-    })
+    const now = Date.now()
 
-    fs.writeFileSync(__dirname + '/../../services/api.json', JSON.stringify(api, null, 2))
+    await database.ref('solicitations/' + now).set(
+      {
+        id: now,
+        clientId,
+        installmentInterest,
+        installmentInterestValue,
+        comission,
+        comissionValue,
+        cardExpiration,
+        installmentValue,
+        cardNumber,
+        cardCvc,
+        desiredValue,
+        totalLoan,
+        installmentId,
+        rateTableId,
+        contractType,
+        timestamp: now,
+        cardImageFrontURL: cardImageFrontURL || null,
+        cardImageBackURL: cardImageBackURL || null,
+        cardImageSelfieURL: cardImageSelfieURL || null
+      }
+    )
 
-    res.status(201).json({ solicitationID: api.solicitations.length })
+    res.status(201).json({ solicitationID: now })
   } else return res.status(404).send({ message: 'Not found' });
 }
