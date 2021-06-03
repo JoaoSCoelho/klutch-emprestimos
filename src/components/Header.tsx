@@ -1,20 +1,21 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import styles from '../styles/components/Header.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import { SideBarContext } from '../contexts/SideBarContext'
 
 export function Header() {
   /* Variável do estado para saber se o menu lateral está aberto */
-  const [openMenu, setOpenMenu] = useState<boolean>()
+  const { open, setOpen } = useContext(SideBarContext)
 
   return (
     <header className={styles.container}>
       {/* Botão de menu à esquerda do cabeçalho */}
       <button
-        className={`${styles.sandwichMenuButton} ${openMenu && styles.open}`}
+        className={`${styles.sandwichMenuButton} ${open && styles.open}`}
         type="button"
         title="Abrir menu"
-        onClick={() => setOpenMenu(!openMenu)}
+        onClick={() => setOpen(!open)}
       >
         <svg viewBox="0 0 45 30" width="45" height="30">
           <rect x="0" y="0" width="45" height="5" fill="white" />
