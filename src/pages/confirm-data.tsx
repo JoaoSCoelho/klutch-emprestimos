@@ -8,8 +8,8 @@ import { RateTable } from '../components/RateTable'
 import { Subject } from '../components/Subject'
 import { LoanContext } from '../contexts/LoanContext'
 import styles from '../styles/pages/ConfirmData.module.css'
-import api from '../services/api.json'
 import { storage } from '../firebase'
+import axios from 'axios'
 
 export type IContractType = 'AUTOMATIC' | 'MANUAL'
 
@@ -52,9 +52,7 @@ export default function ConfirmData() {
             card.photos.back && await storage.ref('cards/' + card.photos.back.name).put(card.photos.back)
             card.photos.selfie && await storage.ref('cards/' + card.photos.selfie.name).put(card.photos.selfie)
 
-            api.solicitations.push({
-              id: api.solicitations.length + 1,
-              timestamp: Date.now(),
+            axios.post('/api/loan', {
               clientId: client.id,
               installmentInterest: installment.installmentInterest,
               installmentInterestValue: desiredValue * (installment.installmentInterest / 100),
@@ -73,12 +71,15 @@ export default function ConfirmData() {
               cardImageBackURL: card.photos.back ? await storage.ref('cards/' + card.photos.back.name).getDownloadURL() : undefined,
               cardImageSelfieURL: card.photos.selfie ? await storage.ref('cards/' + card.photos.selfie.name).getDownloadURL() : undefined
             })
+              .then(({ data: { solicitationID } }) => {
+                setId(solicitationID)
+                router.push('/success')
+              })
+              .catch(() => {
+                alert('Houve um erro ao criar uma nova solicitação!')
+              })
 
-
-
-            setId(api.solicitations.length)
             setSending(false)
-            router.push('/success')
           }}
         >
           <strong>Escolha o tipo de contrato:</strong>

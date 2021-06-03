@@ -6,6 +6,7 @@ import { Router, useRouter } from 'next/router'
 import Image from 'next/image'
 import api from '../../services/api.json'
 import { Button } from '../../components/Button'
+import axios from 'axios'
 
 export interface ISolicitation {
   id: number,
@@ -36,9 +37,9 @@ export default function EmprestimDetails() {
   useEffect(() => {
     if (!router.query.id) return;
 
-    api.solicitations.find((solicitation) => solicitation.id + '' === router.query.id)
-      ? setEmprestim(api.solicitations.find((solicitation) => solicitation.id + '' === router.query.id))
-      : alert('Não existe uma solicitação com esse ID')
+    axios.get('/api/loan/' + router.query.id)
+      .then(({ data }) => setEmprestim(data))
+      .catch(() => alert('Não existe uma solicitação com esse ID'));
 
   }, [router])
 
